@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <svg
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xml:space="preserve"
+      class="fesion-logo"
+      width="100"
+      height="100"
+      viewbox="0 0 100 100"
+    >
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        fill="none"
+        d="M55.239,0.207c1.113-0.059,3.194-0.54,4.542,0.205
+      C59.863,0.5,59.926,0.558,60,0.646c0,0.059,0,0.138,0,0.206c-5.523,4.512-18.285,22.324-22.31,28.381
+      c0.064,0.212,0.146,0.417,0.205,0.652c7.656,0.967,18.574,2.45,18.428,3.457c-0.147,1.015-8.233,11.631-10.84,13.652
+      c-4.336-3.545-8.672-7.09-12.99-10.615C25.21,47.638,18.698,63.528,0.219,61.496C0.137,61.349,0.073,61.203,0,61.057
+      c0-0.06,0-0.137,0-0.206c11.026-6.981,18.698-22.326,25.796-30.527c0.575-1.494-1.143-2.139-0.909-2.402
+      c0.206-0.264,2.318,0.117,2.52-0.557c0.03,0,6.636-10.771,13.096-18.492C44.839,3.986,48.413,1.474,55.239,0.207z"
+        class="logo-fill"
+      />
+    </svg>
+  </body>
+  <style>
+    .logo-fill {
+      stroke-width: 3;
+      stroke: rgb(0, 59, 129);
+      animation: lineMove 0.8s ease-out infinite;
+    }
+
+    @keyframes lineMove {
+      0% {
+        stroke-dasharray: 0, 225.523;
+      }
+      50% {
+        stroke-dasharray: 225.523, 225.523;
+        fill: rgba(0, 0, 0, 0);
+        opacity: 1;
+      }
+      100% {
+        stroke-dasharray: 225.523, 225.523;
+        fill: rgba(0, 59, 129, 0.8);
+        opacity: 0;
+      }
+    }
+  </style>
+</html>
