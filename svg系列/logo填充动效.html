@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="bg">
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xml:space="preserve"
+        class="logo"
+        width="64"
+        height="64"
+        viewbox="0 0 64 64"
+      >
+        <clipPath id="svg-path">
+          <path
+            d="M55.239,0.207c1.113-0.059,3.194-0.54,4.542,0.205
+      C59.863,0.5,59.926,0.558,60,0.646c0,0.059,0,0.138,0,0.206c-5.523,4.512-18.285,22.324-22.31,28.381
+      c0.064,0.212,0.146,0.417,0.205,0.652c7.656,0.967,18.574,2.45,18.428,3.457c-0.147,1.015-8.233,11.631-10.84,13.652
+      c-4.336-3.545-8.672-7.09-12.99-10.615C25.21,47.638,18.698,63.528,0.219,61.496C0.137,61.349,0.073,61.203,0,61.057
+      c0-0.06,0-0.137,0-0.206c11.026-6.981,18.698-22.326,25.796-30.527c0.575-1.494-1.143-2.139-0.909-2.402
+      c0.206-0.264,2.318,0.117,2.52-0.557c0.03,0,6.636-10.771,13.096-18.492C44.839,3.986,48.413,1.474,55.239,0.207z"
+          />
+        </clipPath>
+      </svg>
+    </div>
+  </body>
+  <style>
+    .bg {
+      clip-path: url('#svg-path');
+      position: relative;
+      background-color: #ccc;
+      width: 64px;
+    }
+    .bg::after {
+      content: '';
+      width: 64px;
+      height: 64px;
+      background-color: rgb(0, 59, 129);
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      animation: move 1s ease infinite;
+    }
+    @keyframes move {
+      0% {
+        transform: translateY(84%);
+      }
+      100% {
+        transform: translateY(0%);
+      }
+    }
+  </style>
+</html>
