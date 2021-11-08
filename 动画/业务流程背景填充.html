@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="process">
+      <span class="arrows start">步骤一</span>
+      <span class="arrows body">步骤二</span>
+      <span class="arrows end">步骤三</span>
+    </div>
+  </body>
+  <style>
+    .arrows {
+      display: inline-block;
+      position: relative;
+      width: 140px;
+      height: 42px;
+      line-height: 42px;
+      text-align: center;
+      background: #f2f2f2;
+      background-image: linear-gradient(to right, #3bf04a 0%, #3bf04a 100%);
+      background-repeat: no-repeat;
+      background-position: -140px;
+      transition: background-position 1s ease;
+    }
+    .arrows:hover {
+      background-position: 0px;
+    }
+    .start {
+        clip-path: path('M 0 0 L 130 0 L 140 21 L 130 42 L 0 42 L 0 0');
+    }
+    .body {
+        clip-path: path('M 0 0 L 130 0 L 140 21 L 130 42 L 0 42 L 10 21 L 0 0');
+    }
+    .end {
+        clip-path: path('M 0 0 L 130 0 L 130 42 L 0 42 L 10 21 L 0 0');
+    }
+  </style>
+</html>
