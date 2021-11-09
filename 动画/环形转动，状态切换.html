@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="left-wrap">
+        <span class="left active">left</span>
+      </div>
+      <div class="right-wrap">
+        <div class="right">right</div>
+      </div>
+    </div>
+  </body>
+  <style>
+    .wrapper {
+      position: relative;
+      left: 100px;
+      top: 200px;
+      display: flex;
+    }
+    .left-wrap {
+      position: relative;
+      left: -31px;
+      transform-origin: 63px;
+      transition: all 1s ease;
+    }
+    .left {
+      display: inline-block;
+      transition: all 1s ease;
+    }
+    .right-wrap {
+      position: relative;
+      left: 20px;
+      transform-origin: -24px;
+      transition: all 1s ease;
+    }
+    .right {
+      display: inline-block;
+      transition: all 1s ease;
+    }
+    .active {
+      font-weight: 600;
+      font-size: 20px;
+    }
+  </style>
+  <script>
+    let turn = 0
+    let leftWrap = document.querySelector('.left-wrap')
+    let left = document.querySelector('.left')
+    leftWrap.addEventListener('click', () => {
+      console.dir(left)
+      if (left.className.includes('active')) return
+      left.className += ' active'
+      right.className = right.className.replace(/ active/, '')
+      turn += 0.5
+      leftWrap.style.transform = 'rotate(-' + turn + 'turn)'
+      left.style.transform = 'rotate(' + turn + 'turn)'
+      rightWrap.style.transform = 'rotate(-' + turn + 'turn)'
+      right.style.transform = 'rotate(' + turn + 'turn)'
+    })
+    let rightWrap = document.querySelector('.right-wrap')
+    let right = document.querySelector('.right')
+    rightWrap.addEventListener('click', () => {
+      if (right.className.includes('active')) return
+      right.className += ' active'
+      left.className = left.className.replace(/ active/, '')
+      turn += 0.5
+      leftWrap.style.transform = 'rotate(-' + turn + 'turn)'
+      left.style.transform = 'rotate(' + turn + 'turn)'
+      rightWrap.style.transform = 'rotate(-' + turn + 'turn)'
+      right.style.transform = 'rotate(' + turn + 'turn)'
+    })
+  </script>
+</html>
