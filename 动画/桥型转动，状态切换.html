@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <span class="left">left</span>
+      <span class="right">right</span>
+    </div>
+  </body>
+  <style>
+    .wrapper {
+      position: relative;
+      left: 100px;
+      top: 200px;
+      width: 300px;
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid yellowgreen;
+    }
+    .left {
+      display: inline-block;
+      /* transition: transform 1s ease; */
+    }
+    .right {
+      display: inline-block;
+      /* transition: transform 1s ease; */
+    }
+    </style>
+  <script>
+    let right = document.querySelector('.right')
+    right.addEventListener('click', () => {
+      right.style.transition = 'transform 0.5s ease'
+      right.style.transform =
+      'translate(-132px) rotate(-0.5turn) translate(132px) rotate(0.5turn)'
+      left.style.transition = 'transform 0.5s ease'
+      left.style.transform = 'translate(272px)'
+    })
+    let left = document.querySelector('.left')
+    left.addEventListener('click', () => {
+      left.style.transform =
+        'translate(272px) translate(-136px) rotate(-0.5turn) translate(136px) rotate(0.5turn)'
+      right.style.transform =
+        'translate(-132px) rotate(-0.5turn) translate(132px) rotate(0.5turn) translate(260px)'
+      right.style.pointerEvent = 'none'
+      setTimeout(() => {
+        left.style.transition = ''
+        left.style.transform = ''
+        right.style.transition = ''
+        right.style.transform = ''
+        right.style.pointerEvent = ''
+      }, 500)
+    })
+  </script>
+</html>
