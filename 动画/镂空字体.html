@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>再多努力下</div>
+  </body>
+  <style>
+    html,
+    body {
+      background-color: #0a212e;
+      display: flex;
+      height: 100%;
+      width: 100%;
+    }
+    div {
+      margin: auto;
+      font-size: 80px;
+      font-weight: bold;
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      background-image: linear-gradient(
+        to right,
+        green,
+        yellow 30%,
+        orange 60%,
+        pink
+      );
+      animation: huerotate 5s infinite;
+    }
+    @keyframes huerotate {
+      100% {
+        filter: hue-rotate(360deg);
+      }
+    }
+  </style>
+</html>

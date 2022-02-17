@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wave-wrap">
+      <div class="wave waves-1"></div>
+      <div class="wave waves-2"></div>
+    </div>
+  </body>
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+    body {
+      background: #0a212e;
+      margin: 0px;
+      overflow: hidden;
+    }
+    .wave-wrap {
+      position: relative;
+      top: 20%;
+      left: 50%;
+    }
+    .wave:before {
+      position: absolute;
+      width: 50px;
+      height: 80px;
+      content: '';
+      display: block;
+      border-radius: 50%;
+      border: 1px solid transparent;
+      background: transparent;
+      transform-origin: center;
+    }
+    .wave:after {
+      position: absolute;
+      width: 50px;
+      height: 80px;
+      content: '';
+      display: block;
+      border-radius: 50%;
+      border: 1px solid transparent;
+      background: transparent;
+      transform-origin: center;
+      opacity: 0;
+    }
+    .waves-1:before {
+      animation: wave-animate 3s infinite ease-out;
+    }
+
+    .waves-1:after {
+      animation: wave-animate 3s 0.75s infinite ease-out;
+    }
+
+    .waves-2:before {
+      animation: wave-animate 3s 1.5s infinite ease-out;
+    }
+    .waves-2:after {
+      animation: wave-animate 3s 2.25s infinite ease-out;
+    }
+    @keyframes wave-animate {
+      0% {
+        transform: scale(0);
+        opacity: 1;
+        border-bottom-color: white;
+      }
+      100% {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+  </style>
+</html>
