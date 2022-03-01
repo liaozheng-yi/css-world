@@ -1,111 +1,91 @@
 <!DOCTYPE html>
 <html lang="zh">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title></title>
-	</head>
-	<body>
-		<div class="tips_click">
-			<span>+</span>
-			<b></b>
-			<b></b>
-			<b></b>
-		</div>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title></title>
+  </head>
+  <body>
+    <div class="light">+</div>
+  </body>
 </html>
 
 <style type="text/css">
-	@keyframes click1 {
-		0% {
-			opacity: .8;
-			-webkit-transform: scale(1);
-			transform: scale(1);
-		}
+  @keyframes click1 {
+    0% {
+      opacity: 0.8;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
 
-		100% {
-			opacity: 0;
-			-webkit-transform: scale(2);
-			transform: scale(2);
-		}
-	}
-	@keyframes click2 {
-		0% {
-			opacity: .8;
-			-webkit-transform: scale(1);
-			transform: scale(1);
-		}
+    100% {
+      opacity: 0;
+      -webkit-transform: scale(2);
+      transform: scale(2);
+    }
+  }
+  @keyframes click2 {
+    0% {
+      opacity: 0.8;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
 
-		100% {
-			opacity: 0;
-			-webkit-transform: scale(3);
-			transform: scale(3);
-		}
-	}
+    100% {
+      opacity: 0;
+      -webkit-transform: scale(3);
+      transform: scale(3);
+    }
+  }
 
-	body {
-		background-color: #888;
-	}
+  body {
+    background-color: #888;
+  }
 
-	.tips_click {
-		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-		position: absolute;
-		width: 30px;
-		height: 30px;
-		display: block;
-		cursor: pointer;
-		left: 50%;
-		z-index: 2;
-		margin-top: 30px;
-	}
+  .light {
+    height: 30px;
+    width: 30px;
+    margin-top: 30px;
+    position: absolute;
+    left: 50%;
+	text-align: center;
+	line-height: 30px;
+    color: #e69800;
+    cursor: pointer;
+	font-weight: bold;
+  }
 
-	.tips_click span {
-		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-		cursor: pointer;
-		position: absolute;
-		top: -2px;
-		left: 3px;
-		color: #e69800;
-		font-weight: bold;
-		z-index: 1;
-	}
+  .light {
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+  }
 
-	.tips_click b {
-		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-		cursor: pointer;
-		font-style: normal;
-		position: absolute;
-		display: block;
-		width: 20px;
-		height: 20px;
-		border-radius: 50%;
-		background-color: rgba(255, 255, 255, .6);
-	}
+  .light::before {
+	content: "";
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.6);
+    animation: click1 1s linear infinite;
+  }
 
-	.tips_click b:nth-of-type(1) {
-		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-		cursor: pointer;
-		font-style: normal;
-		position: absolute;
-		display: block;
-		width: 20px;
-		height: 20px;
-		border-radius: 50%;
-		background-color: rgba(255, 255, 255, .6);
-		animation: click1 1s linear infinite;
-	}
-
-	.tips_click b:nth-of-type(2) {
-		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-		cursor: pointer;
-		font-style: normal;
-		position: absolute;
-		display: block;
-		width: 20px;
-		height: 20px;
-		border-radius: 50%;
-		background-color: rgba(255, 255, 255, .6);
-		animation: click2 1s linear infinite;
-	}
+  .light::after{
+	content: "";
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.6);
+    animation: click2 1s linear infinite;
+  }
 </style>
