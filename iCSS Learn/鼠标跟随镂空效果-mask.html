@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <img
+        class="prew"
+        src="https://wx4.sinaimg.cn/mw2000/001qtNoPly1h11a7jk15sj61n82c04qq02.jpg"
+        alt=""
+      />
+    </div>
+  </body>
+  <script>
+    const img = document.querySelector('.prew')
+    img.addEventListener('mousemove', (ev) => {
+      console.log(
+        ev.offsetX,
+        ev.target.offsetWidth,
+        ev.offsetX / ev.target.offsetWidth
+      )
+      img.style.setProperty('--x', ev.offsetX / ev.target.offsetWidth)
+      img.style.setProperty('--y', ev.offsetY / ev.target.offsetHeight)
+    })
+  </script>
+  <style>
+    .wrap {
+      display: flex;
+      position: relative;
+    }
+    /*采用阴影的方式实现，一个足够大的阴影*/
+    .wrap::before {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.5);
+    }
+    /* 采用径向渐变的形式实现, 一个足够大的背景 
+       但是这种方法需要把鼠标事件的监听绑定到.wrap的div元素上
+       因为background把img盖住了，导致监听不到鼠标事件
+    */
+    /* .wrap::before {
+      content: '';
+      position: absolute;
+      width: 100vw;
+      height: 100vw;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(
+        circle at center,
+        transparent 50px,
+        rgba(0, 0, 0, 0.5) 51px
+      );
+    } */
+
+    .prew {
+      margin: auto;
+      max-width: 800px;
+      max-height: 800px;
+    }
+  </style>
+</html>
