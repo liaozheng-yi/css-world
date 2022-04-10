@@ -16,15 +16,16 @@
     </div>
   </body>
   <script>
-    const img = document.querySelector('.prew')
-    img.addEventListener('mousemove', (ev) => {
+    // 文章链接：https://mp.weixin.qq.com/s/i29S86W24ZlZT1cq2vn7VA
+    const wrap = document.querySelector('.wrap')
+    wrap.addEventListener('mousemove', (ev) => {
       console.log(
         ev.offsetX,
         ev.target.offsetWidth,
         ev.offsetX / ev.target.offsetWidth
       )
-      img.style.setProperty('--x', ev.offsetX / ev.target.offsetWidth)
-      img.style.setProperty('--y', ev.offsetY / ev.target.offsetHeight)
+      wrap.style.setProperty('--x', ev.offsetX / ev.target.offsetWidth)
+      wrap.style.setProperty('--y', ev.offsetY / ev.target.offsetHeight)
     })
   </script>
   <style>
@@ -33,35 +34,29 @@
       position: relative;
     }
     /*采用阴影的方式实现，一个足够大的阴影*/
-    .wrap::before {
+    /* .wrap::before {
       content: '';
       position: absolute;
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      top: 50%;
-      left: 50%;
+      top: calc(var(--y) * 100%);
+      left: calc(var(--x) * 100%);
       transform: translate(-50%, -50%);
       box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.5);
-    }
-    /* 采用径向渐变的形式实现, 一个足够大的背景 
-       但是这种方法需要把鼠标事件的监听绑定到.wrap的div元素上
-       因为background把img盖住了，导致监听不到鼠标事件
+    } */
+    /* 采用径向渐变的形式实现, 一个足够大的背景
+      FIXME mask的最后一个色值好像给什么都可以
     */
-    /* .wrap::before {
+    .wrap::before {
       content: '';
       position: absolute;
-      width: 100vw;
-      height: 100vw;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: radial-gradient(
-        circle at center,
-        transparent 50px,
-        rgba(0, 0, 0, 0.5) 51px
-      );
-    } */
+      width: 100%;
+      height: 100%;
+      -webkit-mask: radial-gradient( circle at calc(var(--x, .5) * 100% )  calc(var(--y, .5) * 100% ), transparent 50px, #000 51px);
+      background: rgba(0, 0, 0, .3);
+      backdrop-filter: blur(5px)
+    }
 
     .prew {
       margin: auto;
